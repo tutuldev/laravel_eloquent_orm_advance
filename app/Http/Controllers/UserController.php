@@ -62,7 +62,7 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        $users = User::find($id);
+        $users = User::findOrFail($id);
         // return $users;
         return view('viewuser',compact('users'));
     }
@@ -71,7 +71,7 @@ class UserController extends Controller
      */
     public function edit(User $user)//you can use 'string $id'
     {
-        $users = User::find($user->id);
+        $users = User::findOrFail($user->id);
         return view('updateuser',compact('users'));
 
     }
